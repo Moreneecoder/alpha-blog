@@ -1,0 +1,20 @@
+<h1>Write A New Article</h1>
+
+
+<% if @article.errors.any?%>
+  <h5 style="color: red"><%= pluralize(@article.errors.count, 'error')%> returned for this taekwondo</h5>
+
+   <ul>
+    <% @article.errors.full_messages.each do |error|%>
+     <li><%= error %></li>
+    <%end%>
+   </ul>
+<% end %>
+
+<%= form_with(model: @article, method: "POST", local: true) do |form| %>
+    <%= label_tag(:title, "Title") %>
+    <%= form.text_field(:title, placeholder: "johndoe@example.com") %><br>
+    <%= label_tag(:description, "Description")%><br>
+    <%= form.text_area(:description, size: '40x10')%><br>
+    <%= form.submit %>
+<% end %>
