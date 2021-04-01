@@ -1,0 +1,9 @@
+<%= new_article_error(@article)%>
+
+<%= form_with(model: article, local: true) do |form| %>
+    <%= label_tag(:title, "Title") %>
+    <%= form.text_field(:title, placeholder: "johndoe@example.com") %><br>
+    <%= label_tag(:description, "Description")%><br>
+    <%= form.text_area(:description, size: '40x10')%><br>
+    <%= form.submit %>
+<% end %>
